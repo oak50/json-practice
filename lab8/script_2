@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+import json
+import os
+
+data_directory = "data"
+file_path = os.path.join(data_directory, 'schacon.repos.json')
+
+with open(file_path, 'r') as file:
+    data = json.load(file)
+names = []
+for i in data:
+    if 'name' in i:
+        names.append(item['name'])
+html = []
+for i in data:
+    if 'html_url' in i:
+        html.append(item['html_url'])
+updated = []
+for i in data:
+    if 'updated_at' in i:
+        updated.append(item['updated_at'])
+visible = []
+for i in data:
+    if 'visibility' in i:
+        visible.append(item['visibility'])
+print (names)
+print (html)
+print (updated)
+print (visible)
+
