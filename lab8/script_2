@@ -2,29 +2,19 @@
 import json
 import os
 
-data_directory = "data"
-file_path = os.path.join(data_directory, 'schacon.repos.json')
-
-with open(file_path, 'r') as file:
+# Read schacon.repos.json and load data
+with open('data/schacon.repos.json', 'r') as file:
     data = json.load(file)
-names = []
-for i in data:
-    if 'name' in i:
-        names.append(item['name'])
-html = []
-for i in data:
-    if 'html_url' in i:
-        html.append(item['html_url'])
-updated = []
-for i in data:
-    if 'updated_at' in i:
-        updated.append(item['updated_at'])
-visible = []
-for i in data:
-    if 'visibility' in i:
-        visible.append(item['visibility'])
-print (names)
-print (html)
-print (updated)
-print (visible)
 
+output_file = 'chacon.csv' # create variable to call chacon.csv
+with open(output_file, 'a') as file: # read the file
+    # loop through first five data entries and collect the specified info for each entry
+    for d in data[:5]:
+        name = d['name']
+        html_url = d['html_url']
+        updated_at = d['updated_at']
+        visibility = d['visibility']
+        # create a line which assembles the specified info for the entry
+        print_line = f"{name},{html_url},{updated_at},{visibility}\n"
+        # print this line into the file
+        file.write(print_line)
