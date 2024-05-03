@@ -3,7 +3,7 @@ import json
 import os
 
 # Read schacon.repos.json and load data
-with open('data/schacon.repos.json', 'r') as file:
+with open('./data/schacon.repos.json', 'r') as file:
     data = json.load(file)
 
 output_file = 'chacon.csv' # create variable to call chacon.csv
